@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #F0E68C; /* Dominant color: Sunflower yellow */
+    --color-secondary: #593E1A; /* Secondary color: Deep brown */
+    --color-accent: #0077B6; /* Accent color: Deep blue */
+    --color-background: #F5F5F5; /* Light gray background */
+    --color-text-primary: #333; /* Dark gray text */
+    --color-text-secondary: #666; /* Light gray text */
+  }
