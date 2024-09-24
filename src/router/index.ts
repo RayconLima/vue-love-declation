@@ -24,8 +24,8 @@ const router = createRouter({
         },
         {
           path: 'contagem-regressiva',
-          name: 'countRegressive',
-          component: () => import('@/ui/views/CountRegressive.vue')
+          name: 'count_regressive',
+          component: () => import('@/ui/views/Regressive.vue')
         }
       ]
     },
