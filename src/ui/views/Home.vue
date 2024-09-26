@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Slider from '@/ui/components/Slider.vue'
 import Card from '@/ui/components/Card.vue'
-import { ref } from 'vue';
-
-const isLoaded = ref(false)
+import Spinner from '@/ui/components/Spinner.vue'
+import { ref, defineAsyncComponent } from 'vue';
+const Slider    = defineAsyncComponent(() => import('@/ui/components/Slider.vue'))
+const isLoaded  = ref(false)
 
 const onImgLoad = () => {
   isLoaded.value = true; // Marca como carregada
@@ -11,8 +11,12 @@ const onImgLoad = () => {
 </script>
 
 <template>
-  <Slider duration="duration-500" />
-  
+  <Suspense>
+    <Slider duration="duration-500" />
+    <template #fallback>
+      <Spinner :loading="!isLoaded" />
+    </template>
+  </Suspense>
   <main>
     <Card>
       <div class="flex justify-between">
@@ -28,7 +32,7 @@ const onImgLoad = () => {
           </article>
         </div>
       
-        <img src="@/ui/assets/images/man_and_heart.png" @load="onImgLoad" class="size-1/3" />
+        <img v-lazy="'@/ui/assets/images/man_and_heart.png'" src="@/ui/assets/images/man_and_heart.png" @load="onImgLoad" class="size-1/3" />
       </div>
     </Card>
     <div class="relative pt-[56.25%] w-full md:w-full sm:3/5">
