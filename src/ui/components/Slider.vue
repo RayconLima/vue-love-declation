@@ -5,7 +5,6 @@
       <div v-for="(image, index) in images" :key="index" class="hidden duration-900 ease-in-out" data-carousel-item>
         <img
           :src="image.src"
-          @load="checkImageLoaded"
           class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="Image"
         />
@@ -48,35 +47,36 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import Spinner from '@/ui/components/Spinner.vue'
+import Spinner from '@/ui/components/Spinner.vue';
 
 const images = ref([
   { src: '/images/women-and-moon.webp' },
   { src: 'https://images.unsplash.com/photo-1721332153370-56d7cc352d63?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D' },
   { src: 'https://images.unsplash.com/photo-1486916856992-e4db22c8df33?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D' },
   { src: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-  { src: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBob3RvZ3JhcGh5fGVufDB8fDB8fHww' },
+  { src: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBob3RvZ3JhcGh5fGVufDB8fDB8fHww'   
+ },
 ]);
 
-const isLoading = ref(true);
+const isLoading = ref(true); // Initial value indicating loading
 
 onMounted(() => {
   let imagesLoaded = 0;
-  
-  // Função que verifica se todas as imagens foram carregadas
+
+  // Function to check if all images are loaded
   const checkImagesLoaded = () => {
     imagesLoaded++;
     if (imagesLoaded === images.value.length) {
-      isLoading.value = true;
+      isLoading.value = false; // Set to false when all images are loaded
     }
   };
 
-  // Itera sobre cada imagem e verifica o carregamento
-  images.value.forEach(image => {
-    const img   = new Image();
-    img.src     = image.src;
-    img.onload  = checkImagesLoaded;
-    img.onerror = checkImagesLoaded; // Se houver erro, também conta como "carregada"
+  // Iterate over images and check for loading
+  images.value.forEach((image) => {
+    const img = new Image();
+    img.src = image.src;
+    img.onload = checkImagesLoaded;
+    img.onerror = checkImagesLoaded; // Count error as "loaded" (optional)
   });
 });
 </script>
