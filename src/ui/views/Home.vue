@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Card from '@/ui/components/Card.vue'
-import { ref, defineAsyncComponent } from 'vue';
-const Slider    = defineAsyncComponent(() => import('@/ui/components/Slider.vue'))
+import Slider from '@/ui/components/Slider.vue'
+import { ref } from 'vue';
 const isLoaded  = ref(false)
 
 const onImgLoad = () => {
