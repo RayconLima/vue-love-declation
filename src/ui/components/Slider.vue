@@ -47,7 +47,6 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import Spinner from '@/ui/components/Spinner.vue';
 
 const images = ref([
   { src: '/images/women-and-moon.webp' },
