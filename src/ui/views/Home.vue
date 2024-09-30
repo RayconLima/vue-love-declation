@@ -1,15 +1,3 @@
-<script setup lang="ts">
-import Card from '@/ui/components/Card.vue'
-import Slider from '@/ui/components/Slider.vue'
-import { ref } from 'vue';
-const isLoaded  = ref(false)
-
-const onImgLoad = () => {
-  isLoaded.value = true; // Marca como carregada
-};
-
-</script>
-
 <template>
   <Slider />
   <main>
@@ -42,3 +30,33 @@ const onImgLoad = () => {
     </div>
   </main>
 </template>
+<script>
+import Card from '@/ui/components/Card.vue'
+import Slider from '@/ui/components/Slider.vue'
+import { APP_NAME } from '@/utils/config';
+import { ref, onMounted } from 'vue';
+const isLoaded  = ref(false)
+import { useRoute } from 'vue-router';
+export default {
+  components: {
+    Card,
+    Slider
+  },
+  setup() {
+    const route = useRoute();
+    const onImgLoad = () => {
+      isLoaded.value = true;
+    };
+
+    onMounted(() => {
+      document.title = route.meta.title || APP_NAME;
+    })
+
+    return {
+      onImgLoad,
+      isLoaded
+    }
+  }
+}
+
+</script>

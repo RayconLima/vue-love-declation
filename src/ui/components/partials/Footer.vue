@@ -6,16 +6,16 @@
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
             <li>
-                <a href="#" class="text-[--color-background] hover:underline me-4 md:me-6">Página Inicial</a>
+                <router-link class="text-[--color-background] hover:underline me-4 md:me-6" :to="{ name: 'home'}">Página Inicial</router-link>
             </li>
             <li>
-                <a href="#" class="text-[--color-background] hover:underline me-4 md:me-6">Sobre nós</a>
+                <router-link class="text-[--color-background] hover:underline me-4 md:me-6" :to="{ name: 'about'}">Sobre nós</router-link>
             </li>
             <li>
-                <a href="#" class="text-[--color-background] hover:underline me-4 md:me-6">Galeria</a>
+                <router-link class="text-[--color-background] hover:underline me-4 md:me-6" :to="{ name: 'gallery'}">Galeria</router-link>
             </li>
             <li>
-                <a href="#" class="text-[--color-background] hover:underline">Contagem Regressiva</a>
+                <router-link class="text-[--color-background] hover:underline me-4 md:me-6" :to="{ name: 'count_regressive'}">Contagem Regressiva</router-link>
             </li>
         </ul>
     </div>

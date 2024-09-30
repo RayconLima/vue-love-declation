@@ -21,10 +21,12 @@
 </template>
 
 <script lang="ts">
+import { useRoute } from 'vue-router';
 import { ref, onMounted, watch } from 'vue';
 
 export default {
   setup() {
+    const route = useRoute();
     const deadline = ref(new Date("2024-11-10T09:59:59.000Z")); // set your deadline here
     const months = ref(0);
     const days = ref(0);
@@ -56,6 +58,8 @@ export default {
     };
 
     onMounted(() => {
+      document.title = route.meta.title || 'Galeria';
+      
       updateCountdown();
     });
 
