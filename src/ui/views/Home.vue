@@ -32,7 +32,7 @@ const onImgLoad = () => {
           </article>
         </div>
       
-        <img v-lazy="'@/ui/assets/images/man_and_heart.png'" src="@/ui/assets/images/man_and_heart.png" @load="onImgLoad" class="size-1/3" />
+        <img src="@/ui/assets/images/man_and_heart.png" @load="onImgLoad" class="size-1/3" />
       </div>
     </Card>
     <div class="relative pt-[56.25%] w-full md:w-full sm:3/5">
