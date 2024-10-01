@@ -36,7 +36,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: routes,
-  linkExactActiveClass: 'md:text-[--color-primary]'
+  linkExactActiveClass: 'text-[--color-primary]'
 })
 
 router.beforeEach((to, from, next) => {
