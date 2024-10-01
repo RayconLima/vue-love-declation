@@ -1,5 +1,4 @@
 <template>
-  <Slider />
   <main>
     <Card>
       <div class="flex justify-between">
