@@ -2,7 +2,7 @@
   <main>
     <Card>
       <div class="flex justify-between">
-        <div class="flex items-center">
+        <div class="flex items-center md:w-1/2 xl:w-1/3">
           <article>
             <header>
               <h1>Uma Jornada Inesquecível</h1> 
@@ -14,7 +14,7 @@
           </article>
         </div>
       
-        <img src="@/ui/assets/images/man_and_heart.png" @load="onImgLoad" class="size-1/3" />
+        <img src="@/ui/assets/images/man_and_heart.png" @load="onImgLoad" class="size-1/3 md:w-1/2 xl:w-1/3" />
       </div>
     </Card>
     <div class="relative pt-[56.25%] w-full md:w-full sm:3/5">
